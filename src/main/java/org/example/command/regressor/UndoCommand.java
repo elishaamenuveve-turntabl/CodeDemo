@@ -1,13 +1,13 @@
 package org.example.command.regressor;
 
-import org.example.command.Command;
-import org.example.logger.ShippingHistory;
+import org.example.command.ordercommand.OrderCommand;
+import org.example.logger.OrderHistory;
 
-public class UndoCommand extends Command {
+public class UndoCommand extends OrderCommand {
 
     @Override
     public void execute() {
-        ShippingHistory.getInstance().undo();
+        OrderHistory.getInstance().undo();
     }
 
     @Override

@@ -1,27 +1,28 @@
 package org.example.logger;
 
 import org.example.command.Command;
+import org.example.command.ordercommand.OrderCommand;
 
 import java.util.Stack;
 
-public class ShippingHistory {
+public class OrderHistory {
     private Stack<Command> undoStack;
     private Stack<Command> redoStack;
 
-    private static ShippingHistory instance;
+    private static OrderHistory instance;
 
-    private ShippingHistory() {
+    private OrderHistory() {
         undoStack = new Stack<>();
         redoStack = new Stack<>();
     }
 
-    public static ShippingHistory getInstance() {
+    public static OrderHistory getInstance() {
         if (instance == null)
-            instance = new ShippingHistory();
+            instance = new OrderHistory();
         return instance;
     }
 
-    public void addToStack(Command command) {
+    public void addToStack(OrderCommand command) {
         //prototyping
         Command clone = command.clone();
         undoStack.add(clone);

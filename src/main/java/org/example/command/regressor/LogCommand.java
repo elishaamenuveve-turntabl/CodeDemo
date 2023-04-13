@@ -1,22 +1,23 @@
 package org.example.command.regressor;
 
-import org.example.command.Command;
-import org.example.logger.ShippingHistory;
+import org.example.command.ordercommand.OrderCommand;
+import org.example.logger.OrderHistory;
 
-public class LogCommand extends Command {
-    private Command command;
+public class LogCommand extends OrderCommand {
+    private OrderCommand command;
 
-    public LogCommand(Command command) {
+    public LogCommand(OrderCommand command) {
         this.command = command;
     }
 
     @Override
     public void execute() {
-        ShippingHistory.getInstance().addToStack(command);
+        OrderHistory.getInstance().addToStack(command);
         command.execute();
     }
 
     @Override
     public void unexecute() {
+        command.unexecute();
     }
 }
